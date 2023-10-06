@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Banana
   - Trap
+  - npc
   layers:
   - Default
   - TransparentFX
