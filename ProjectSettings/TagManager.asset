@@ -47,6 +47,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 1
+    uniqueID: 970347199
+    locked: 0
+  - name: 2
+    uniqueID: 3159091157
+    locked: 0
+  - name: 3
+    uniqueID: 3731165975
+    locked: 0
+  - name: 4
+    uniqueID: 1559201379
+    locked: 0
+  - name: 5
+    uniqueID: 2869401357
+    locked: 0
   - name: Terrain
     uniqueID: 2917577907
     locked: 0
