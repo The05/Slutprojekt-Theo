@@ -13,23 +13,23 @@ public class ItemCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Trophy"))
-        {
-            trophyCollected = true;
-            Destroy(collision.gameObject);
-            Debug.Log("trophy collected");
-        }
         if (collision.gameObject.CompareTag("Banana"))
         {
             Destroy(collision.gameObject);
             collectSoundEffect.Play();
             bananas++;
             BananasText.text = "Bananas: " + bananas;
-
-            if (bananas == 13 && trophyCollected)
+        }
+        if (collision.gameObject.CompareTag("Trophy"))
+        {
+            trophyCollected = true;
+            Destroy(collision.gameObject);
+            Debug.Log("trophy collected");
+            if (bananas >= 13)
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
             }
         }
+        
     }
 }
