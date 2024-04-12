@@ -8,16 +8,14 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D coll;
     private SpriteRenderer sprite;
     private Animator anim;
-
+    public static Vector2 lastCheckPointPos;
     [SerializeField] private LayerMask jumpableGround;
-
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
-
     private enum MovementState { idle, running, jumping, falling};
-
     [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
 
     void Start()
     {
@@ -72,6 +70,21 @@ public class PlayerMovement : MonoBehaviour
         }
 
         anim.SetInteger("state", (int)state);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        rb.bodyType = RigidbodyType2D.Static;
+        anim.SetTrigger("death");
+        deathSoundEffect.Play();
     }
 
     private bool IsGrounded()
