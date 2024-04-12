@@ -17,6 +17,7 @@ public class ItemCollector : MonoBehaviour
         {
             trophyCollected = true;
             Destroy(collision.gameObject);
+            Debug.Log("trophy collected");
         }
         if (collision.gameObject.CompareTag("Banana"))
         {
