@@ -11,6 +11,7 @@ public class ItemCollector : MonoBehaviour
     [SerializeField] private TextMeshProUGUI BananasText;
     [SerializeField] private AudioSource collectSoundEffect;
     [SerializeField] private int sceneID = 1;
+    [SerializeField] private int requireBananas = 10;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,7 +27,7 @@ public class ItemCollector : MonoBehaviour
             trophyCollected = true;
             Destroy(collision.gameObject);
             Debug.Log("trophy collected");
-            if (bananas >= 13)
+            if (bananas >= requireBananas)
             {
                 SceneManager.LoadScene(sceneID);
             }

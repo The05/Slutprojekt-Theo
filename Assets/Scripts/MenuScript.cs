@@ -12,8 +12,8 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private int sceneID = 1;
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
-        Debug.Log("Spelar");
+        SceneManager.LoadScene(sceneID);
+        Debug.Log("Spelar scene " + sceneID);
     }
 
     public void QuitGame()
